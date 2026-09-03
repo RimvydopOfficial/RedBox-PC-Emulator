@@ -1,5 +1,4 @@
 # RedBox-PC-Emulator
-RedBox PC Emulator is a QEMU-based emulator for Android. It currently supports x86 emulation for android devices.
 
 # About Development
 My colleagues and team helped create new virtual machines via phone and gave you the opportunity to use our virtual machine app!
