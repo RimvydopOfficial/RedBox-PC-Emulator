@@ -173,7 +173,30 @@ Available cache sizes:
 
 RedBox supports QEMU multi-threaded TCG.
 
-When enabled:
+### 📱 Android Requirements
 
-```text
--accel tcg,thread=multi
+Current minimum Android version:
+
+Android 8.0 (API 26)
+
+An ARM64 Android device is currently the primary development target.
+
+Performance varies significantly depending on device hardware.
+
+### 🧑‍💻 Development
+
+RedBox PC Emulator is developed by Rimvydop.
+
+The project is still evolving, so features, UI, QEMU configuration, and compatibility may change between versions.
+
+Bug reports and testing feedback are welcome.
+
+### ⚠️ Disclaimer
+
+RedBox PC Emulator does not include Microsoft Windows or other commercial operating systems.
+
+Users are responsible for providing their own legally obtained operating system installation media, disk images, software, and licenses.
+
+Windows is a trademark of Microsoft Corporation.
+
+QEMU and other third-party components are subject to their respective licenses.
