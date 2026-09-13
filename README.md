@@ -1,24 +1,179 @@
-# RedBox-PC-Emulator
-<img width="2828" height="2828" alt="RedBox Logo" src="https://github.com/user-attachments/assets/df245b83-d246-491c-a204-714e972d3f66" />
+# 🔴 RedBox PC Emulator
 
-# Welcome to RedBox, Here everything about:
+**RedBox PC Emulator** is an Android virtual machine and PC emulator powered by **QEMU 11.1.1**.
 
-Coming soon
+The project is focused on bringing a modern, customizable PC emulation experience to Android with a simple interface, configurable virtual hardware, and an optimized QEMU backend.
 
-# Screenshot
+RedBox is currently under active development.
 
-<img width="1080" height="2400" alt="Screenshot_20260909_155438_RedBox PC Emulator" src="https://github.com/user-attachments/assets/65b97a68-bc3b-44da-9ce7-29f2d702613e" />
-<img width="1080" height="2400" alt="Screenshot_20260909_155355_RedBox PC Emulator" src="https://github.com/user-attachments/assets/fea1f830-ede5-4bcb-ba0b-e51239880c5e" />
-<img width="1080" height="2400" alt="Screenshot_20260909_155346_RedBox PC Emulator" src="https://github.com/user-attachments/assets/8cd91b45-e783-4be8-9c83-f1a6a9a66a3f" />
-<img width="1080" height="2400" alt="Screenshot_20260909_155303_RedBox PC Emulator" src="https://github.com/user-attachments/assets/730f20c9-9a3d-420a-b7fd-e09b857ca964" />
-<img width="1080" height="2400" alt="Screenshot_20260909_155256_RedBox PC Emulator" src="https://github.com/user-attachments/assets/a0f32434-9267-42eb-9769-aca0e8f53dae" />
-<img width="1080" height="2400" alt="Screenshot_20260909_155250_RedBox PC Emulator" src="https://github.com/user-attachments/assets/ba3ceec7-7425-4229-b00d-f3b3e3af34a8" />
-<img width="1080" height="2400" alt="Screenshot_20260909_152759_RedBox PC Emulator" src="https://github.com/user-attachments/assets/611f51a4-ff18-4b72-be82-42359e11f6dc" />
+---
 
+## 🚀 About RedBox
 
-# About Development
-My colleagues and team helped create new virtual machines via phone and gave you the opportunity to use our virtual machine app!
+RedBox PC Emulator allows you to create and run virtual machines directly on Android.
 
-Thank you for your support and we will continue to develop this project. 
+The project currently focuses primarily on:
 
-"The Virtual Machine project has started, it may take a long time to complete and the APK has not been created yet."
+- x86 / x86_64 PC emulation
+- Windows guests
+- QEMU TCG emulation
+- Custom VM configuration
+- Touchscreen mouse controls
+- Physical volume-button mouse controls
+- Disk image and ISO support
+- Performance tuning
+- Modern Android UI
+
+RedBox is being developed with the long-term goal of providing a powerful Android VM experience while keeping VM configuration easy to understand.
+
+---
+
+## ⚙️ Emulator Engine
+
+RedBox currently uses:
+
+**QEMU 11.1.1**
+
+The QEMU engine is built for:
+
+- Android
+- ARM64 host devices
+- x86_64 guest emulation
+- SDL2 display output
+- TCG/JIT CPU translation
+
+RedBox integrates QEMU directly into the Android application through native C/C++ and JNI.
+
+---
+
+## 🖥️ Guest Operating Systems
+
+RedBox is designed to eventually support many operating systems.
+
+Current development and testing primarily focuses on:
+
+- Windows 7
+- Other x86/x86_64 Windows versions
+
+Future testing will include:
+
+- Windows XP
+- Windows 8 / 8.1
+- Windows 10
+- Linux distributions
+- Other x86 operating systems
+- ARM / ARM64 guests
+
+Guest compatibility depends on the selected virtual hardware and QEMU configuration.
+
+---
+
+## 💾 Disk Image Support
+
+RedBox can load virtual disk images through the Android file picker.
+
+Current development includes support for formats such as:
+
+- VHD
+- IMG
+- QCOW2
+- Other QEMU-compatible disk images
+
+Disk images are accessed through Android's Storage Access Framework.
+
+---
+
+## 💿 ISO Support
+
+ISO images can be attached to a virtual machine as virtual CD/DVD media.
+
+This can be used for:
+
+- Operating system installation
+- Driver installation
+- Recovery environments
+- Bootable utilities
+- Software installation
+
+The virtual hard disk remains the primary boot device in the current configuration.
+
+---
+
+## 🧠 CPU & Memory Configuration
+
+Each virtual machine can be configured with its own hardware settings.
+
+### Architecture
+
+Current UI options include:
+
+- x86_64
+- x86
+- ARM64
+- ARM
+
+x86_64 is currently the primary working QEMU backend.
+
+### RAM
+
+Available presets include:
+
+- 1024 MB
+- 2048 MB
+- 4096 MB
+- 6144 MB
+- 8192 MB
+
+Actual usable memory depends on the Android device.
+
+### CPU Cores
+
+Available options include:
+
+- 1 core
+- 2 cores
+- 4 cores
+- 6 cores
+- 8 cores
+
+More virtual CPU cores do not always mean better performance when using TCG.
+
+---
+
+## ⚡ Performance Settings
+
+RedBox includes configurable QEMU performance options inspired by advanced PC emulator frontends.
+
+### Performance Presets
+
+Available presets:
+
+- Compatibility
+- Balanced
+- Performance
+- Custom
+
+### CPU Model
+
+Available CPU models currently include:
+
+- Default
+- qemu64
+- max
+
+### TCG Translation Cache
+
+Available cache sizes:
+
+- 128 MB
+- 256 MB
+- 512 MB
+
+### Multi-threaded TCG
+
+RedBox supports QEMU multi-threaded TCG.
+
+When enabled:
+
+```text
+-accel tcg,thread=multi
