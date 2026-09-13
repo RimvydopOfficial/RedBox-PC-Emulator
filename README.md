@@ -50,16 +50,12 @@ RedBox integrates QEMU directly into the Android application through native C/C+
 
 RedBox is designed to eventually support many operating systems.
 
-Current development and testing primarily focuses on:
-
-- Windows 7
-- Other x86/x86_64 Windows versions
-
-Future testing will include:
-
 - Windows XP
+- Windows Vista
+- Windows 7
 - Windows 8 / 8.1
 - Windows 10
+- Windows 11
 - Linux distributions
 - Other x86 operating systems
 - ARM / ARM64 guests
@@ -72,12 +68,8 @@ Guest compatibility depends on the selected virtual hardware and QEMU configurat
 
 RedBox can load virtual disk images through the Android file picker.
 
-Current development includes support for formats such as:
-
 - VHD
-- IMG
 - QCOW2
-- Other QEMU-compatible disk images
 
 Disk images are accessed through Android's Storage Access Framework.
 
@@ -172,6 +164,40 @@ Available cache sizes:
 ### Multi-threaded TCG
 
 RedBox supports QEMU multi-threaded TCG.
+
+### 🖱️ Mouse Controls
+
+RedBox includes touchscreen mouse controls.
+
+Touchpad Mode
+
+Move your finger across the VM display to move the guest mouse cursor.
+
+Relative mouse movement is sent directly to QEMU.
+
+Left Click
+
+Tap/click using the RedBox input controls.
+
+The physical:
+
+Volume Down button = Left Mouse Button
+
+Holding Volume Down while moving on the touchscreen allows click-and-drag operations.
+
+Right Click
+
+The physical:
+
+Volume Up button = Right Mouse Button
+
+This provides quick mouse interaction while using the VM fullscreen.
+
+### ⌨️ Keyboard
+
+Android's software keyboard can be used with the guest operating system.
+
+Keyboard input is routed through the SDL/QEMU input system to the virtual machine.
 
 ### 📱 Android Requirements
 
