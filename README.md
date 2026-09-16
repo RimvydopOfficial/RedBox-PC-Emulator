@@ -64,165 +64,146 @@ Guest compatibility depends on the selected virtual hardware and QEMU configurat
 
 ---
 
-## 💾 Disk Image Support
+## ✨ Features
 
-RedBox can load virtual disk images through the Android file picker.
+- x86/x86_64 PC emulation
+- QEMU 11.1.1 engine
+- Multi-Threaded TCG (MTTCG)
+- Configurable RAM and CPU cores
+- Multiple CPU models
+  - qemu64
+  - Core 2 Duo
+  - Nehalem
+- Configurable TCG translation cache
+- PC/i440FX and Q35 machine types
+- QCOW2, VHD and RAW disk images
+- Create new virtual RAW disks
+- ISO/CD-ROM support
+- Secondary driver ISO support
+- IDE, AHCI and VirtIO Block storage
+- Standard VGA
+- Bochs display
+- VirtIO VGA
+- VirGL/OpenGL foundation
+- RTL8139 and E1000 networking
+- User-mode networking (NAT/SLIRP)
+- Shared virtual disk support
+- Shared folder support
+- Android Storage Access Framework support
+- Touchscreen/mouse input
+- Keyboard input
+- Saved VM configurations
+- Dark Android interface
 
-- VHD
-- QCOW2
+## 💻 Recommended Windows 10 Configuration
 
-Disk images are accessed through Android's Storage Access Framework.
+For a good balance between compatibility and performance:
 
----
+| Setting | Recommended |
+|---|---|
+| RAM | 4096 MB |
+| CPU | Core 2 Duo or Nehalem |
+| CPU Cores | 4 |
+| MTTCG | Enabled |
+| TCG Cache | 256 MB |
+| Machine | PC / i440FX |
+| Disk | VirtIO Block |
+| Display | VirtIO VGA |
+| Network | RTL8139 |
+| Network Mode | User (NAT) |
 
-## 💿 ISO Support
+VirtIO Block requires the appropriate VirtIO storage driver inside Windows.
 
-ISO images can be attached to a virtual machine as virtual CD/DVD media.
+## ⚡ Performance
 
-This can be used for:
+RedBox v0.1.0 uses QEMU's TCG engine for CPU emulation.
 
-- Operating system installation
-- Driver installation
-- Recovery environments
-- Bootable utilities
-- Software installation
+When an x86/x86_64 guest is running on an ARM64 Android device, guest CPU instructions must be translated to ARM64 instructions.
 
-The virtual hard disk remains the primary boot device in the current configuration.
+Performance therefore depends heavily on the Android device and guest operating system.
 
----
+v0.1.0 includes:
 
-## 🧠 CPU & Memory Configuration
+- Multi-Threaded TCG
+- Configurable translation cache
+- ARM64-native QEMU build
+- Release-optimized QEMU engine
+- VirtIO storage support
 
-Each virtual machine can be configured with its own hardware settings.
+## 🎮 Graphics
 
-### Architecture
+RedBox supports several virtual display adapters, including VirtIO VGA.
 
-Current UI options include:
+The v0.1.0 engine also contains the foundation for VirGL/OpenGL rendering.
 
-- x86_64
-- x86
-- ARM64
-- ARM
+Windows VirtIO GPU support may depend on the guest driver, and full Windows 3D acceleration should not be assumed.
 
-x86_64 is currently the primary working QEMU backend.
+## 🌐 Networking
 
-### RAM
+RedBox supports QEMU user-mode networking using SLIRP.
 
-Available presets include:
+Available virtual network adapters include:
 
-- 1024 MB
-- 2048 MB
-- 4096 MB
-- 6144 MB
-- 8192 MB
+- Realtek RTL8139
+- Intel E1000
 
-Actual usable memory depends on the Android device.
+Guest systems can access the internet without requiring root access on Android.
 
-### CPU Cores
+## 🔊 Audio
 
-Available options include:
+Audio support is experimental in v0.1.0.
 
-- 1 core
-- 2 cores
-- 4 cores
-- 6 cores
-- 8 cores
+Improved audio support is planned for a future release.
 
-More virtual CPU cores do not always mean better performance when using TCG.
+## 📱 Requirements
 
----
+- ARM64 Android device
+- Android 8.0 or newer recommended
+- Sufficient free storage for virtual disks and ISO images
+- At least 4 GB device RAM recommended
+- More RAM is recommended for Windows guests
 
-## ⚡ Performance Settings
+No root access is required for normal RedBox operation.
 
-RedBox includes configurable QEMU performance options inspired by advanced PC emulator frontends.
+## ⚠️ Important
 
-### Performance Presets
+RedBox does not include Windows, Windows installation media, product keys, or other proprietary operating-system files.
 
-Available presets:
+Users must provide their own legally obtained operating-system installation media and licenses.
 
-- Compatibility
-- Balanced
-- Performance
-- Custom
+## 🛣️ Roadmap
 
-### CPU Model
+### v0.1.0
 
-Available CPU models currently include:
+First stable RedBox release.
 
-- Default
-- qemu64
-- max
+### v0.2.0
 
-### TCG Translation Cache
+The next major development cycle will focus heavily on performance, including research into improved CPU translation and execution beyond the current v0.1.0 configuration.
 
-Available cache sizes:
+Other future work includes:
 
-- 128 MB
-- 256 MB
-- 512 MB
+- Improved audio
+- Additional VM configuration
+- Improved VM experience
+- Graphics improvements
+- Performance improvements
+- Additional guest architectures
+- RedBox Accelerator research
 
-### Multi-threaded TCG
+## 🐛 Issues
 
-RedBox supports QEMU multi-threaded TCG.
+If you encounter a bug, please open a GitHub issue and include:
 
-### 🖱️ Mouse Controls
+- Android device
+- Android version
+- Guest operating system
+- RedBox VM configuration
+- What happened
+- Steps to reproduce the problem
 
-RedBox includes touchscreen mouse controls.
+## 📜 License
 
-Touchpad Mode
+See the repository's license information for details.
 
-Move your finger across the VM display to move the guest mouse cursor.
-
-Relative mouse movement is sent directly to QEMU.
-
-Left Click
-
-Tap/click using the RedBox input controls.
-
-The physical:
-
-Volume Down button = Left Mouse Button
-
-Holding Volume Down while moving on the touchscreen allows click-and-drag operations.
-
-Right Click
-
-The physical:
-
-Volume Up button = Right Mouse Button
-
-This provides quick mouse interaction while using the VM fullscreen.
-
-### ⌨️ Keyboard
-
-Android's software keyboard can be used with the guest operating system.
-
-Keyboard input is routed through the SDL/QEMU input system to the virtual machine.
-
-### 📱 Android Requirements
-
-Current minimum Android version:
-
-Android 8.0 (API 26)
-
-An ARM64 Android device is currently the primary development target.
-
-Performance varies significantly depending on device hardware.
-
-### 🧑‍💻 Development
-
-RedBox PC Emulator is developed by Rimvydop.
-
-The project is still evolving, so features, UI, QEMU configuration, and compatibility may change between versions.
-
-Bug reports and testing feedback are welcome.
-
-### ⚠️ Disclaimer
-
-RedBox PC Emulator does not include Microsoft Windows or other commercial operating systems.
-
-Users are responsible for providing their own legally obtained operating system installation media, disk images, software, and licenses.
-
-Windows is a trademark of Microsoft Corporation.
-
-QEMU and other third-party components are subject to their respective licenses.
+RedBox uses QEMU and other open-source components. Their respective licenses and copyright notices apply.
