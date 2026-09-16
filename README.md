@@ -71,9 +71,6 @@ Guest compatibility depends on the selected virtual hardware and QEMU configurat
 - Multi-Threaded TCG (MTTCG)
 - Configurable RAM and CPU cores
 - Multiple CPU models
-  - qemu64
-  - Core 2 Duo
-  - Nehalem
 - Configurable TCG translation cache
 - PC/i440FX and Q35 machine types
 - QCOW2, VHD and RAW disk images
@@ -95,9 +92,30 @@ Guest compatibility depends on the selected virtual hardware and QEMU configurat
 - Saved VM configurations
 - Dark Android interface
 
-## 💻 Recommended Windows 10 Configuration
+## 💻 Recommended Windows Configuration
 
-For a good balance between compatibility and performance:
+RedBox v0.1.0 has two recommended configurations depending on the display adapter you use.
+
+### Standard VGA Configuration
+
+Recommended for compatibility and a simple Windows setup.
+
+| Setting | Recommended |
+|---|---|
+| RAM | 4096 MB |
+| CPU | Core 2 Duo or Nehalem |
+| CPU Cores | 4 |
+| MTTCG | Enabled |
+| TCG Cache | 256 MB |
+| Machine | PC / i440FX |
+| Disk | IDE |
+| Display | Standard VGA |
+| Network | RTL8139 |
+| Network Mode | User (NAT) |
+
+### VirtIO Configuration
+
+Recommended when using VirtIO VGA and VirtIO drivers.
 
 | Setting | Recommended |
 |---|---|
@@ -112,7 +130,7 @@ For a good balance between compatibility and performance:
 | Network | RTL8139 |
 | Network Mode | User (NAT) |
 
-VirtIO Block requires the appropriate VirtIO storage driver inside Windows.
+**Note:** VirtIO Block requires the appropriate VirtIO storage driver inside Windows. When installing Windows onto a VirtIO Block disk, you may need to attach the VirtIO driver ISO and load the storage driver during Windows Setup.
 
 ## ⚡ Performance
 
