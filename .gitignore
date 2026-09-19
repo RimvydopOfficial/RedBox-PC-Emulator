@@ -1,0 +1,33 @@
+﻿# Android Studio / IntelliJ
+*.iml
+.idea/
+.kotlin/
+
+# Gradle
+.gradle/
+**/build/
+
+# Local machine configuration
+local.properties
+
+# Native/CMake generated files
+.cxx/
+**/.cxx/
+.externalNativeBuild/
+**/.externalNativeBuild/
+
+# Build outputs
+captures/
+*.apk
+*.aab
+*.apks
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary/editor files
+*.tmp
+*.temp
+*.bak
+*~

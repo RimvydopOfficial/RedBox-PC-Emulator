@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Material 3-inspired RedBox background -->
+    <path
+        android:fillColor="#101318"
+        android:pathData="M14,14 L94,14 Q98,14 98,18 L98,90 Q98,94 94,94 L14,94 Q10,94 10,90 L10,18 Q10,14 14,14 Z" />
+
+    <!-- Red cube -->
+    <path
+        android:fillColor="#FF3345"
+        android:pathData="M54,20 L82,36 L82,68 L54,84 L26,68 L26,36 Z" />
+
+    <!-- Cube left face -->
+    <path
+        android:fillColor="#D7192B"
+        android:pathData="M26,36 L54,52 L54,84 L26,68 Z" />
+
+    <!-- Cube right face -->
+    <path
+        android:fillColor="#FF5260"
+        android:pathData="M54,52 L82,36 L82,68 L54,84 Z" />
+
+    <!-- Monitor -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M44,39 L69,39 Q72,39 72,42 L72,59 Q72,62 69,62 L44,62 Q41,62 41,59 L41,42 Q41,39 44,39 Z" />
+
+    <path
+        android:fillColor="#101318"
+        android:pathData="M45,42 L68,42 L68,58 L45,58 Z" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M53,63 L60,63 L60,67 L53,67 Z" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M49,67 L64,67 L64,70 L49,70 Z" />
+</vector>
